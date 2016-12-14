@@ -119,7 +119,7 @@ func (c *Cluster) NewTLSAssets(caKey *rsa.PrivateKey, caCert *x509.Certificate) 
 		},
 		//etcd https client/peer interfaces are not exposed externally
 		//will live the full year with the CA
-		Duration: tlsutil.Duration365d,
+		Duration: certDuration,
 	}
 
 	etcdCert, err := tlsutil.NewSignedServerCertificate(etcdConfig, etcdKey, caCert, caKey)
